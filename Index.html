@@ -1,54 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wollopadonkey Aerial Photography</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #0044cc;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      font-size: 2.5em;
-      letter-spacing: 1px;
-    }
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: 20px auto;
-    }
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 20px;
-    }
-    p {
-      text-align: center;
-      font-size: 1.2em;
-      margin-bottom: 40px;
-    }
-    #gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around;
-    }
-    .gallery-item {
-      margin: 10px;
-      width: 300px;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wollopadonkey Aerial Photography</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        #gallery {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        #gallery img {
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        #gallery img:hover {
+            transform: scale(1.05);
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #0044cc;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input, form textarea {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        form input[type="submit"] {
+            background-color: #0044cc;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        form input[type="submit"]:hover {
+            background-color: #0033aa;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Wollopadonkey Aerial Photography</h1>
+    <p>Capturing the world from above</p>
+</header>
+
+<section>
+    <h2>#AerialPhotography</h2>
+    <p>Explore the beauty of the world from a bird's-eye view. At Wollopadonkey Aerial Photography, we specialize in capturing stunning landscapes, architectural wonders, and unique perspectives only visible from the sky.</p>
+    <div id="gallery">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder Aerial Image 1">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder Aerial Image 2">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder Aerial Image 3">
+        <img src="https://via.placeholder.com/300x200" alt="Placeholder Aerial Image 4">
+    </div>
+</section>
+
+<section>
+    <h2>Contact Us</h2>
+    <p>Have a project in mind? Reach out to us for inquiries and bookings.</p>
+    <form action="https://formspree.io/f/mnqkwkog" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message">
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2024 Wollopadonkey Aerial Photography | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
