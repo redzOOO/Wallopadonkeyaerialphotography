@@ -111,6 +111,61 @@ section p {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
+/* Gallery Image Styling (for JS) */
+.gallery-img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Progress Bar Styling */
+progress {
+    width: 80%;
+    max-width: 500px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+    background-color: #eee;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+}
+
+progress::-webkit-progress-value {
+    background-color: #0044cc;
+}
+
+progress::-moz-progress-bar {
+    background-color: #0044cc;
+}
+
+/* Delete Button Styling */
+.image-container button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 200px;
+}
+
+.image-container button:hover {
+    background-color: #c0392b;
+}
+
 /* Contact Form Styling */
 form {
     display: flex;
@@ -160,10 +215,20 @@ footer p {
     header h1 {
         font-size: 3rem;
     }
+
     header p {
         font-size: 1.2rem;
     }
+
     #gallery img {
         height: 150px; /* Adjusted height for smaller screens */
+    }
+
+    #gallery {
+        grid-template-columns: 1fr; /* Single column layout for smaller screens */
+    }
+
+    .image-container button {
+        width: 100%; /* Full width for delete buttons on mobile */
     }
 }
