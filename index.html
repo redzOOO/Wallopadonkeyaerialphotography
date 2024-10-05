@@ -6,10 +6,10 @@
     <title>Wollopadonkey Aerial Photography</title>
 
     <!-- Favicon declaration -->
-    <link rel="icon" type="image/webp" href="images/favicon.webp" />
+    <link rel="icon" type="image/favicon.webp" href="images/favicon.webp" />
 
     <!-- Link Lightbox CSS -->
-    <link href="./lightbox/lightbox.css" rel="stylesheet" />
+    <link href="lightbox/lightbox.css" rel="stylesheet" />
 
     <style>
         * {
@@ -25,7 +25,7 @@
         }
         header {
             position: relative;
-            background-image: url('./images/1.jpg'); /* Background image */
+            background-image: url('images/1.jpg'); /* Background image */
             background-size: cover;
             background-position: center;
             color: white;
@@ -60,6 +60,12 @@
             z-index: 2;
             position: relative;
             color: #f1f1f1;
+        }
+
+        /* Disable image dragging and selection */
+        img {
+            pointer-events: none;
+            user-select: none;
         }
 
         /* Image Gallery Styling */
@@ -153,6 +159,15 @@
             }
         }
     </style>
+
+    <!-- Script to disable right-click on images -->
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
 </head>
 <body>
 
@@ -163,7 +178,7 @@
 
 <section>
     <h2>Stunning #AerialPhotography</h2>
-    <p>At Wollopadonkey Aerial Photography, we specialise in capturing breathtaking landscapes, architectural masterpieces, and unique aerial perspectives. Discover the world from above through our lens.</p>
+    <p>At Wollopadonkey Aerial Photography, we specialize in capturing breathtaking landscapes, architectural masterpieces, and unique aerial perspectives. Discover the world from above through our lens.</p>
     
     <!-- Image gallery with Lightbox -->
     <div id="gallery">
@@ -204,7 +219,7 @@
 </footer>
 
 <!-- Include Lightbox JS -->
-<script src="./lightbox/lightbox.js"></script>
+<script src="lightbox/lightbox.js"></script>
 
 </body>
 </html>
