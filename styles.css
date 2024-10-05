@@ -16,134 +16,130 @@ body {
 /* Header Styling */
 header {
     position: relative;
-    background-color: #0044cc;
+    background-image: url('images/1.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
     color: white;
     text-align: center;
-    padding: 30px 0;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay on image */
+    z-index: 1;
 }
 
 header h1 {
-    font-size: 3rem;
     margin: 0;
+    font-size: 4rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    position: relative;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 10px;
+    z-index: 2;
+    position: relative;
+    color: #f1f1f1;
 }
 
-/* Upload Section Styling */
-#upload-section {
-    text-align: center;
-    margin: 20px auto;
-}
-
-#upload-section h2 {
-    font-size: 2rem;
-    color: #0044cc;
-}
-
-#upload-section p {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-#imageUpload {
-    padding: 10px;
-    font-size: 1.1rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-}
-
-/* Progress Bar Styling */
-progress {
-    width: 80%;
-    max-width: 500px;
-    height: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    display: block;
-    background-color: #eee;
-}
-
-progress::-webkit-progress-bar {
-    background-color: #f3f3f3;
-}
-
-progress::-webkit-progress-value {
-    background-color: #0044cc;
-}
-
-progress::-moz-progress-bar {
-    background-color: #0044cc;
-}
-
-/* Gallery Section Styling */
-#gallery-section {
+/* Main Content Container */
+.container {
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-top: -50px; /* Pull content closer to header */
+    margin-bottom: 40px;
+    z-index: 2;
+    position: relative;
 }
 
-#gallery-section h2 {
-    font-size: 2rem;
-    color: #0044cc;
+/* Section Styling */
+section {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+section h2 {
+    color: #0044cc;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
+section p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Image Gallery Styling */
 #gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
+    padding: 20px;
+    justify-items: center;
 }
 
-.image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+#gallery img {
+    width: 100%;
+    height: 200px; /* Fixed height */
+    object-fit: cover; /* Ensures image fits container while maintaining aspect ratio */
+    border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.image-container:hover {
+#gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Gallery Image Styling */
-.gallery-img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+/* Contact Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
 }
 
-.gallery-img:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-}
-
-/* Delete Button Styling */
-.image-container button {
-    margin-top: 10px;
-    padding: 10px 20px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
+form input, form textarea {
     width: 80%;
-    max-width: 200px;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
 }
 
-.image-container button:hover {
-    background-color: #c0392b;
+form input[type="submit"] {
+    background-color: #0044cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #003399;
 }
 
 /* Footer Styling */
@@ -151,30 +147,23 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 20px 0;
 }
 
 footer p {
     margin: 0;
+    font-size: 0.9rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
-
     header p {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
-
-    /* Responsive adjustments for the gallery */
-    #gallery {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
-    }
-
-    .image-container {
-        width: 100%;
+    #gallery img {
+        height: 150px; /* Adjusted height for smaller screens */
     }
 }
