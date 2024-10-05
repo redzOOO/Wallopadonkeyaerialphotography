@@ -1,6 +1,6 @@
 // Import the necessary Firebase functions from the SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
-import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js";
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll, deleteObject } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js";
 
 // Firebase configuration (replace with your actual config)
 const firebaseConfig = {
@@ -15,12 +15,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-// Initialize Firebase Storage
 const storage = getStorage(app);
 
-// Function to upload an image to Firebase Storage
-window.uploadImage = function(event) { // Make the function global
+// Upload Image Function
+window.uploadImage = function(event) { // Make the function globally accessible
     const file = event.target.files[0]; // Get the selected file
     const storageRef = ref(storage, `images/${file.name}`); // Create a reference to the file in Firebase Storage
 
@@ -33,7 +31,7 @@ window.uploadImage = function(event) { // Make the function global
     });
 };
 
-// Function to display all images from Firebase Storage
+// Function to display images from Firebase Storage
 function displayImages() {
     const gallery = document.getElementById('gallery');
     gallery.innerHTML = ''; // Clear the existing gallery
@@ -46,17 +44,46 @@ function displayImages() {
         result.items.forEach((imageRef) => {
             // Get the download URL for each image
             getDownloadURL(imageRef).then((url) => {
+                // Create a container for each image
+                const container = document.createElement('div');
+                container.className = 'image-container';
+
+                // Create the image element
                 const img = document.createElement('img');
                 img.src = url;
-                img.style.width = '200px'; // Set the image size
+                img.alt = 'Aerial Photo';
+                img.style.width = '200px';
                 img.style.height = '200px';
-                img.style.objectFit = 'cover'; // Ensure the image is displayed correctly
-                gallery.appendChild(img); // Append the image to the gallery
+                img.style.objectFit = 'cover';
+
+                // Create a delete button
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = () => deleteImage(imageRef);
+
+                // Append image and delete button to container
+                container.appendChild(img);
+                container.appendChild(deleteButton);
+
+                // Append container to the gallery
+                gallery.appendChild(container);
             });
         });
     }).catch((error) => {
         console.error('Error fetching images:', error);
     });
+}
+
+// Function to delete an image from Firebase Storage
+function deleteImage(imageRef) {
+    if (confirm('Are you sure you want to delete this image?')) {
+        deleteObject(imageRef).then(() => {
+            alert('Image deleted successfully!');
+            displayImages(); // Refresh the gallery after deletion
+        }).catch((error) => {
+            console.error('Error deleting the image:', error);
+        });
+    }
 }
 
 // Call displayImages when the page loads
