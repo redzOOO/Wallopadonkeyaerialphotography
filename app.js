@@ -17,31 +17,36 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-// Upload Image Function with Progress Indicator
+// Upload Multiple Images with Progress Indicator
 window.uploadImage = function(event) { 
-    const file = event.target.files[0]; // Get the selected file
-    const storageRef = ref(storage, `images/${file.name}`); // Create a reference to the file in Firebase Storage
+    const files = event.target.files; // Get the selected files
+    const progressContainer = document.getElementById('progress-container');
+    progressContainer.innerHTML = ''; // Clear previous progress bars
 
-    // Display upload progress
-    const progressBar = document.createElement('progress');
-    progressBar.value = 0;
-    progressBar.max = 100;
-    document.getElementById('upload-section').appendChild(progressBar);
+    Array.from(files).forEach((file) => {
+        const storageRef = ref(storage, `images/${file.name}`); // Create a reference to the file in Firebase Storage
+        
+        // Create a progress bar for each file
+        const progressBar = document.createElement('progress');
+        progressBar.value = 0;
+        progressBar.max = 100;
+        progressContainer.appendChild(progressBar);
 
-    // Upload the file with progress tracking
-    const uploadTask = uploadBytesResumable(storageRef, file);
+        // Upload the file with progress tracking
+        const uploadTask = uploadBytesResumable(storageRef, file);
 
-    uploadTask.on('state_changed', (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        progressBar.value = progress; // Update the progress bar
-    }, (error) => {
-        console.error('Error uploading the file:', error);
-        alert('Error uploading the file, please try again.');
-    }, () => {
-        // Upload completed
-        alert('File uploaded successfully!');
-        document.getElementById('upload-section').removeChild(progressBar); // Remove progress bar
-        displayImages(); // Refresh the gallery after upload
+        uploadTask.on('state_changed', (snapshot) => {
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            progressBar.value = progress; // Update the progress bar
+        }, (error) => {
+            console.error('Error uploading the file:', error);
+            alert('Error uploading the file, please try again.');
+        }, () => {
+            // Upload completed
+            alert('File uploaded successfully!');
+            progressContainer.removeChild(progressBar); // Remove progress bar after upload
+            displayImages(); // Refresh the gallery after upload
+        });
     });
 };
 
@@ -66,7 +71,6 @@ function displayImages() {
                 const img = document.createElement('img');
                 img.src = url;
                 img.alt = 'Aerial Photo';
-                img.className = 'gallery-img'; // Apply class for consistent sizing
 
                 // Create a delete button
                 const deleteButton = document.createElement('button');
