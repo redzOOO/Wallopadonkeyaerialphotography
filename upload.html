@@ -13,8 +13,21 @@
 
     <!-- Include your JavaScript file -->
     <script type="module" src="app.js"></script> <!-- Load the JS as a module -->
+
+    <!-- Add the password protection script -->
+    <script>
+        const correctPassword = "yourpassword";  // Set your password here
+
+        function checkPassword() {
+            const enteredPassword = prompt("Please enter the password:");
+            if (enteredPassword !== correctPassword) {
+                alert("Incorrect password!");
+                document.body.innerHTML = "<h2>Access Denied</h2>";
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkPassword()"> <!-- Check the password when the page loads -->
     <header>
         <h1>Upload Page</h1>
         <p>Upload and manage your aerial photos here.</p>
