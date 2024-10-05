@@ -19,7 +19,7 @@ header {
     background-color: #0044cc;
     color: white;
     text-align: center;
-    padding: 30px 0;
+    padding: 30px;
 }
 
 header h1 {
@@ -29,18 +29,28 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
+    margin-top: 10px;
 }
 
 /* Upload Section Styling */
 #upload-section {
     text-align: center;
-    margin: 40px auto;
+    margin: 20px auto;
+}
+
+#upload-section h2 {
+    font-size: 2rem;
+    color: #0044cc;
+}
+
+#upload-section p {
+    font-size: 1.2rem;
+    margin: 10px 0;
 }
 
 #imageUpload {
-    margin-top: 20px;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border: 2px solid #ddd;
     border-radius: 5px;
 }
@@ -48,13 +58,20 @@ header p {
 /* Gallery Section Styling */
 #gallery-section {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 20px;
+}
+
+#gallery-section h2 {
+    font-size: 2rem;
+    color: #0044cc;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
@@ -62,18 +79,24 @@ header p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure full width on mobile */
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .image-container img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Maintains aspect ratio */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    max-width: 100%; /* Ensure images fit their container */
 }
 
-.image-container img:hover {
+.image-container:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 .image-container button {
@@ -86,8 +109,8 @@ header p {
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 1rem;
-    width: 90%; /* Make buttons wider on mobile */
-    max-width: 200px; /* Button max width on larger screens */
+    width: 80%;
+    max-width: 200px;
 }
 
 .image-container button:hover {
@@ -99,7 +122,7 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
     margin-top: 40px;
 }
 
@@ -117,16 +140,11 @@ footer p {
         font-size: 1rem;
     }
 
-    /* Responsive adjustments for the gallery */
     #gallery {
-        grid-template-columns: 1fr; /* Switch to single column on smaller screens */
+        grid-template-columns: 1fr; /* Single column on smaller screens */
     }
 
-    .image-container img {
-        height: auto; /* Adjust image height */
-    }
-
-    .image-container button {
-        width: 100%; /* Full width for buttons on mobile */
+    .image-container {
+        width: 100%;
     }
 }
