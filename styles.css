@@ -80,19 +80,35 @@ header p {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Image Upload Input */
-input[type="file"] {
-    display: block;
-    margin: 20px auto;
-    padding: 10px;
-    font-size: 1.2rem;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
+/* Contact Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
 }
 
-input[type="file"]:hover {
-    border-color: #ccc;
+form input, form textarea {
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="submit"] {
+    background-color: #0044cc;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 15px 30px;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #003399;
 }
 
 /* Footer Styling */
@@ -107,17 +123,3 @@ footer {
 footer p {
     margin: 0;
     font-size: 0.9rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-    header p {
-        font-size: 1rem;
-    }
-    #gallery img {
-        height: 150px; /* Adjusted height for smaller screens */
-    }
-}
