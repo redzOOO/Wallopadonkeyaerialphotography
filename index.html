@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wollopadonkey Aerial Photography</title>
+    <link href="lightbox/lightbox.css" rel="stylesheet" />
     <style>
         * {
             box-sizing: border-box;
@@ -16,12 +17,17 @@
             color: #333;
         }
         header {
-            background-image: url('https://via.placeholder.com/1500x500');
+            background-image: url('images/1.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 80px 20px;
+            height: 60vh; /* Adjust height to match your preference */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         header h1 {
             margin: 0;
@@ -61,30 +67,6 @@
             color: #0044cc;
             text-align: center;
         }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        form input, form textarea {
-            width: 80%;
-            max-width: 600px;
-            padding: 10px;
-            margin: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        form input[type="submit"] {
-            background-color: #0044cc;
-            color: white;
-            cursor: pointer;
-            border: none;
-            padding: 15px 20px;
-        }
-        form input[type="submit"]:hover {
-            background-color: #003399;
-        }
         footer {
             background-color: #333;
             color: white;
@@ -94,18 +76,6 @@
         }
         footer p {
             margin: 0;
-        }
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-            header p {
-                font-size: 1.2rem;
-            }
-            form input, form textarea {
-                width: 100%;
-            }
         }
     </style>
 </head>
@@ -119,28 +89,33 @@
 <section>
     <h2>Stunning #AerialPhotography</h2>
     <p>At Wollopadonkey Aerial Photography, we specialize in capturing breathtaking landscapes, architectural masterpieces, and unique aerial perspectives. Discover the world from above through our lens.</p>
+    
+    <!-- Image gallery with Lightbox -->
     <div id="gallery">
-        <img src="https://via.placeholder.com/400x300" alt="Placeholder Aerial Image 1">
-        <img src="https://via.placeholder.com/400x300" alt="Placeholder Aerial Image 2">
-        <img src="https://via.placeholder.com/400x300" alt="Placeholder Aerial Image 3">
-        <img src="https://via.placeholder.com/400x300" alt="Placeholder Aerial Image 4">
+        <!-- Loop for each image -->
+        <a href="images/1.jpg" data-lightbox="gallery"><img src="images/1.jpg" alt="Aerial Photo 1"></a>
+        <a href="images/2.jpg" data-lightbox="gallery"><img src="images/2.jpg" alt="Aerial Photo 2"></a>
+        <a href="images/3.jpg" data-lightbox="gallery"><img src="images/3.jpg" alt="Aerial Photo 3"></a>
+        <a href="images/4.jpg" data-lightbox="gallery"><img src="images/4.jpg" alt="Aerial Photo 4"></a>
+        <a href="images/5.jpg" data-lightbox="gallery"><img src="images/5.jpg" alt="Aerial Photo 5"></a>
+        <a href="images/6.jpg" data-lightbox="gallery"><img src="images/6.jpg" alt="Aerial Photo 6"></a>
+        <a href="images/7.jpg" data-lightbox="gallery"><img src="images/7.jpg" alt="Aerial Photo 7"></a>
+        <a href="images/8.jpg" data-lightbox="gallery"><img src="images/8.jpg" alt="Aerial Photo 8"></a>
+        <a href="images/9.jpg" data-lightbox="gallery"><img src="images/9.jpg" alt="Aerial Photo 9"></a>
+        <a href="images/10.jpg" data-lightbox="gallery"><img src="images/10.jpg" alt="Aerial Photo 10"></a>
+        <a href="images/11.jpg" data-lightbox="gallery"><img src="images/11.jpg" alt="Aerial Photo 11"></a>
+        <a href="images/12.jpg" data-lightbox="gallery"><img src="images/12.jpg" alt="Aerial Photo 12"></a>
+        <a href="images/13.jpg" data-lightbox="gallery"><img src="images/13.jpg" alt="Aerial Photo 13"></a>
+        <a href="images/14.jpg" data-lightbox="gallery"><img src="images/14.jpg" alt="Aerial Photo 14"></a>
+        <a href="images/15.jpg" data-lightbox="gallery"><img src="images/15.jpg" alt="Aerial Photo 15"></a>
+        <a href="images/16.jpg" data-lightbox="gallery"><img src="images/16.jpg" alt="Aerial Photo 16"></a>
     </div>
-</section>
-
-<section>
-    <h2>Get in Touch</h2>
-    <p>We’d love to hear from you! Contact us for inquiries, projects, and booking details.</p>
-    <form action="https://formspree.io/f/mnqkwkog" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="_replyto" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <input type="submit" value="Send Message">
-    </form>
 </section>
 
 <footer>
     <p>&copy; 2024 Wollopadonkey Aerial Photography | All Rights Reserved</p>
 </footer>
 
+<script src="lightbox/lightbox.js"></script>
 </body>
 </html>
