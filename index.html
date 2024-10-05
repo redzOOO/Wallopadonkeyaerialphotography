@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Wallopadonkey Aerial Photography</title>
 
-    <link rel="stylesheet" href="styles.css"> <!-- Optional: Add your custom styles here -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom styles -->
 
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
@@ -16,12 +16,25 @@
 </head>
 <body>
     <header>
-        <h1>Gallery - Wallopadonkey Aerial Photography</h1>
+        <h1>Wallopadonkey Aerial Photography</h1>
         <p>Discover stunning aerial perspectives.</p>
     </header>
 
     <section id="gallery">
-        <!-- The images from Firebase Storage will be dynamically displayed here -->
+        <!-- Images from Firebase Storage will be dynamically displayed here -->
+    </section>
+
+    <!-- Contact Us Form -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have any questions or want to work with us? Send us a message below!</p>
+
+        <form action="https://formspree.io/f/xgvewkzj" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
     </section>
 
     <!-- Optional footer -->
