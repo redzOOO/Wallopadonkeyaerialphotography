@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wallopadonkey Aerial Photography</title>
+    <title>Wallopadonkey Aerial Photography - Upload Page</title>
 
     <link rel="stylesheet" href="styles.css"> <!-- Optional: Add your custom styles here -->
 
@@ -17,15 +17,23 @@
 <body>
     <header>
         <h1>Wallopadonkey Aerial Photography</h1>
-        <p>Discover stunning aerial perspectives.</p>
+        <p>Upload and manage your aerial photos here.</p>
     </header>
 
-    <section id="gallery">
-        <!-- The uploaded images will be dynamically displayed here -->
+    <!-- Upload Form Section -->
+    <section id="upload-section">
+        <h2>Upload Images</h2>
+        <p>Select an image to upload and manage your gallery.</p>
+        <input type="file" id="imageUpload" onchange="uploadImage(event)">
     </section>
 
-    <!-- Image Upload Form -->
-    <input type="file" id="imageUpload" onchange="uploadImage(event)">
+    <!-- Gallery Section -->
+    <section id="gallery-section">
+        <h2>Gallery</h2>
+        <div id="gallery">
+            <!-- Uploaded images will be displayed here with delete buttons -->
+        </div>
+    </section>
 
     <!-- Optional footer -->
     <footer>
