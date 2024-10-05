@@ -19,7 +19,7 @@ header {
     background-color: #0044cc;
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 30px 0;
 }
 
 header h1 {
@@ -55,6 +55,29 @@ header p {
     border-radius: 5px;
 }
 
+/* Progress Bar Styling */
+progress {
+    width: 80%;
+    max-width: 500px;
+    height: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+    background-color: #eee;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #f3f3f3;
+}
+
+progress::-webkit-progress-value {
+    background-color: #0044cc;
+}
+
+progress::-moz-progress-bar {
+    background-color: #0044cc;
+}
+
 /* Gallery Section Styling */
 #gallery-section {
     max-width: 1200px;
@@ -86,19 +109,25 @@ header p {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.image-container img {
-    width: 100%;
-    height: 200px; /* Fixed height for images */
-    object-fit: cover; /* Maintains aspect ratio */
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
 .image-container:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
+/* Gallery Image Styling */
+.gallery-img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+/* Delete Button Styling */
 .image-container button {
     margin-top: 10px;
     padding: 10px 20px;
@@ -140,6 +169,7 @@ footer p {
         font-size: 1rem;
     }
 
+    /* Responsive adjustments for the gallery */
     #gallery {
         grid-template-columns: 1fr; /* Single column on smaller screens */
     }
