@@ -1,6 +1,6 @@
 // Import the necessary Firebase functions from the SDK
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
-import { getStorage, ref, uploadBytes, getDownloadURL, listAll, deleteObject } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL, listAll, deleteObject } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js";
 
 // Firebase configuration (replace with your actual config)
 const firebaseConfig = {
@@ -17,17 +17,31 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
 
-// Upload Image Function
-window.uploadImage = function(event) { // Make the function globally accessible
+// Upload Image Function with Progress Indicator
+window.uploadImage = function(event) { 
     const file = event.target.files[0]; // Get the selected file
     const storageRef = ref(storage, `images/${file.name}`); // Create a reference to the file in Firebase Storage
 
-    // Upload the file to Firebase Storage
-    uploadBytes(storageRef, file).then((snapshot) => {
-        alert('File uploaded successfully!');
-        displayImages(); // Refresh the gallery after upload
-    }).catch((error) => {
+    // Display upload progress
+    const progressBar = document.createElement('progress');
+    progressBar.value = 0;
+    progressBar.max = 100;
+    document.getElementById('upload-section').appendChild(progressBar);
+
+    // Upload the file with progress tracking
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on('state_changed', (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        progressBar.value = progress; // Update the progress bar
+    }, (error) => {
         console.error('Error uploading the file:', error);
+        alert('Error uploading the file, please try again.');
+    }, () => {
+        // Upload completed
+        alert('File uploaded successfully!');
+        document.getElementById('upload-section').removeChild(progressBar); // Remove progress bar
+        displayImages(); // Refresh the gallery after upload
     });
 };
 
@@ -52,9 +66,7 @@ function displayImages() {
                 const img = document.createElement('img');
                 img.src = url;
                 img.alt = 'Aerial Photo';
-                img.style.width = '200px';
-                img.style.height = '200px';
-                img.style.objectFit = 'cover';
+                img.className = 'gallery-img'; // Apply class for consistent sizing
 
                 // Create a delete button
                 const deleteButton = document.createElement('button');
@@ -71,6 +83,7 @@ function displayImages() {
         });
     }).catch((error) => {
         console.error('Error fetching images:', error);
+        alert('Error loading images, please try again.');
     });
 }
 
@@ -82,6 +95,7 @@ function deleteImage(imageRef) {
             displayImages(); // Refresh the gallery after deletion
         }).catch((error) => {
             console.error('Error deleting the image:', error);
+            alert('Error deleting the image, please try again.');
         });
     }
 }
