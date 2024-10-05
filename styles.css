@@ -16,130 +16,77 @@ body {
 /* Header Styling */
 header {
     position: relative;
-    background-image: url('images/1.jpg'); /* Background image */
-    background-size: cover;
-    background-position: center;
+    background-color: #0044cc;
     color: white;
     text-align: center;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay on image */
-    z-index: 1;
+    padding: 30px 0;
 }
 
 header h1 {
+    font-size: 3rem;
     margin: 0;
-    font-size: 4rem;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
-    z-index: 2;
-    position: relative;
 }
 
 header p {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    z-index: 2;
-    position: relative;
-    color: #f1f1f1;
+    font-size: 1.2rem;
 }
 
-/* Main Content Container */
-.container {
+/* Upload Section Styling */
+#upload-section {
+    text-align: center;
+    margin: 40px auto;
+}
+
+#imageUpload {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Gallery Section Styling */
+#gallery-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-top: -50px; /* Pull content closer to header */
-    margin-bottom: 40px;
-    z-index: 2;
-    position: relative;
+    padding: 20px;
 }
 
-/* Section Styling */
-section {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-section h2 {
-    color: #0044cc;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-section p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    color: #555;
-}
-
-/* Image Gallery Styling */
 #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px;
-    justify-items: center;
 }
 
-#gallery img {
-    width: 100%;
-    height: 200px; /* Fixed height */
-    object-fit: cover; /* Ensures image fits container while maintaining aspect ratio */
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-#gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-}
-
-/* Contact Form Styling */
-form {
+.image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 20px;
 }
 
-form input, form textarea {
-    width: 80%;
-    max-width: 600px;
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+.image-container img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-form input[type="submit"] {
-    background-color: #0044cc;
+.image-container img:hover {
+    transform: scale(1.05);
+}
+
+.image-container button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #e74c3c;
     color: white;
-    cursor: pointer;
     border: none;
-    padding: 15px 30px;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-form input[type="submit"]:hover {
-    background-color: #003399;
+.image-container button:hover {
+    background-color: #c0392b;
 }
 
 /* Footer Styling */
@@ -148,22 +95,9 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
+    margin-top: 40px;
 }
 
 footer p {
     margin: 0;
-    font-size: 0.9rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 3rem;
-    }
-    header p {
-        font-size: 1.2rem;
-    }
-    #gallery img {
-        height: 150px; /* Adjusted height for smaller screens */
-    }
 }
