@@ -76,6 +76,7 @@
             transform: scale(1.05);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
+
         section {
             text-align: center;
             padding: 50px 20px;
@@ -95,17 +96,6 @@
             font-size: 1.2rem;
             margin-bottom: 40px;
             color: #555;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 20px;
-        }
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
         }
 
         /* Contact Form Styling */
@@ -133,6 +123,18 @@
         }
         form input[type="submit"]:hover {
             background-color: #003399;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         /* Responsive adjustments */
@@ -176,6 +178,19 @@
         <a href="images/15.jpg" data-lightbox="gallery"><img src="images/15.jpg" alt="Aerial Photo 15"></a>
         <a href="images/16.jpg" data-lightbox="gallery"><img src="images/16.jpg" alt="Aerial Photo 16"></a>
     </div>
+</section>
+
+<section>
+    <h2>Contact Us</h2>
+    <p>Have any questions or want to work with us? Send us a message below!</p>
+    
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message">
+    </form>
 </section>
 
 <footer>
