@@ -16,26 +16,27 @@
 </head>
 <body>
     <header>
-        <h1>Wallopadonkey Aerial Photography</h1>
+        <h1>Upload Page</h1>
         <p>Upload and manage your aerial photos here.</p>
     </header>
 
     <!-- Upload Form Section -->
-    <section id="upload-section">
+    <section id="upload-section" class="section-container">
         <h2>Upload Images</h2>
-        <p>Select an image to upload and manage your gallery.</p>
-        <input type="file" id="imageUpload" onchange="uploadImage(event)">
+        <p>Select images to upload and manage your gallery. You can upload multiple images at once.</p>
+        <input type="file" id="imageUpload" multiple onchange="uploadImage(event)">
+        <div id="progress-container"></div> <!-- Container to show progress bars -->
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery-section">
+    <section id="gallery-section" class="section-container">
         <h2>Gallery</h2>
         <div id="gallery">
             <!-- Uploaded images will be displayed here with delete buttons -->
         </div>
     </section>
 
-    <!-- Optional footer -->
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Wallopadonkey Aerial Photography | All Rights Reserved</p>
     </footer>
