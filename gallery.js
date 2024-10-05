@@ -32,12 +32,19 @@ function displayImages() {
         result.items.forEach((imageRef) => {
             // Get the download URL for each image
             getDownloadURL(imageRef).then((url) => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('data-lightbox', 'gallery'); // Enable Lightbox for images
+                
                 const img = document.createElement('img');
                 img.src = url;
-                img.style.width = '200px'; // Set the image size
-                img.style.height = '200px';
-                img.style.objectFit = 'cover'; // Ensure the image is displayed correctly
-                gallery.appendChild(img); // Append the image to the gallery
+                img.alt = 'Aerial Photo'; // Add a relevant alt text
+                img.style.width = '100%';
+                img.style.height = '200px'; // Fixed height
+                img.style.objectFit = 'cover'; // Maintain aspect ratio
+                
+                link.appendChild(img);
+                gallery.appendChild(link); // Append each image to the gallery
             });
         });
     }).catch((error) => {

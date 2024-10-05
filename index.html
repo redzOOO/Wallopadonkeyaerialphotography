@@ -3,45 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Wallopadonkey Aerial Photography</title>
+    <title>Wallopadonkey Aerial Photography</title>
 
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom styles -->
-        <!-- Favicon declaration -->
+    <!-- Favicon declaration -->
     <link rel="icon" type="image/webp" href="images/favicon.webp" />
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js"></script>
+    <!-- Link Lightbox CDN CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
 
-    <!-- Include your JavaScript file for displaying images -->
-    <script type="module" src="gallery.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your custom styles -->
 </head>
 <body>
-    <header>
-        <h1>Wallopadonkey Aerial Photography</h1>
-        <p>Discover stunning aerial perspectives.</p>
-    </header>
 
-    <section id="gallery">
+<header>
+    <h1>Wallopadonkey Aerial Photography</h1>
+    <p>Unleashing the beauty of the skies, qualified A2 CofC and conducting surveys.</p>
+</header>
+
+<section>
+    <h2>Stunning #AerialPhotography</h2>
+    <p>At Wallopadonkey Aerial Photography, we specialise in capturing breathtaking landscapes, architectural masterpieces, and unique aerial perspectives. Discover the world from above through our lens.</p>
+    
+    <!-- Image gallery with Lightbox -->
+    <div id="gallery">
         <!-- Images from Firebase Storage will be dynamically displayed here -->
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Us Form -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Have any questions or want to work with us? Send us a message below!</p>
+<section>
+    <h2>Contact Us</h2>
+    <p>Have any questions or want to work with us? Send us a message below!</p>
 
-        <form action="https://formspree.io/f/xgvewkzj" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="_replyto" placeholder="Your Email" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <input type="submit" value="Send Message">
-        </form>
-    </section>
+    <!-- Contact Form -->
+    <form action="https://formspree.io/f/xgvewkzj" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="_replyto" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <input type="submit" value="Send Message">
+    </form>
+</section>
 
-    <!-- Optional footer -->
-    <footer>
-        <p>&copy; 2024 Wallopadonkey Aerial Photography | All Rights Reserved</p>
-    </footer>
+<footer>
+    <p>&copy; 2024 Wallopadonkey Aerial Photography | All Rights Reserved</p>
+</footer>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.1.2/firebase-storage.js"></script>
+
+<!-- Include jQuery first -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Lightbox CDN JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+<!-- Custom JS -->
+<script type="module" src="gallery.js"></script> <!-- Gallery JS for fetching images from Firebase -->
+
 </body>
 </html>

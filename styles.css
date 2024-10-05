@@ -16,12 +16,12 @@ body {
 /* Header Styling */
 header {
     position: relative;
-    background-image: url('images/1.jpg'); /* Placeholder for background image */
+    background-image: url('images/1.jpg'); /* Background image */
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    height: 60vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,16 +59,15 @@ header p {
 /* Image Gallery Styling */
 #gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     margin: 40px 20px;
     padding: 20px;
-    justify-items: center;
 }
 
 #gallery img {
     width: 100%;
-    height: 200px; /* Fixed height for images */
+    height: 200px; /* Fixed height */
     object-fit: cover; /* Ensures image fits container while maintaining aspect ratio */
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -85,7 +84,6 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 40px;
 }
 
 form input, form textarea {
@@ -128,12 +126,9 @@ footer p {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     header h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     header p {
-        font-size: 1rem;
-    }
-    #gallery img {
-        height: 150px; /* Adjusted height for smaller screens */
+        font-size: 1.2rem;
     }
 }
